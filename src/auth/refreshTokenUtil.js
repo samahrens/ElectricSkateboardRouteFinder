@@ -12,7 +12,7 @@ const refreshAccessToken = async (refreshToken) => {
     });
     const newAccessToken = response.data.access_token;
     const newRefreshToken = response.data.refresh_token;
-    console.log('Access token refreshed:', newAccessToken);
+    // console.log('Access token refreshed:', newAccessToken);
     return { newAccessToken: newAccessToken, newRefreshToken: newRefreshToken };
   } catch (error) {
     console.error('Error refreshing access token:', error);
