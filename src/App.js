@@ -39,7 +39,7 @@ function App() {
     }
     accessToken = newTokens.newAccessToken;
     refreshToken = newTokens.newRefreshToken;
-    console.log("new accessToken: " + accessToken + " new refreshToken: " + refreshToken);
+    // console.log("new accessToken: " + accessToken + " new refreshToken: " + refreshToken);
 
     console.log(response.data.segments);
 

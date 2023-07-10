@@ -4,34 +4,34 @@ import refreshAccessToken from './refreshTokenUtil'
 function calculateCoords(location) {
   const { latitude, longitude } = location;
 
-  //earth's radius in miles
-  const earthRadius = 3963.2;
-  //convert latitude and longitude to radians
-  const latRad = (latitude * Math.PI) / 180;
-  const lonRad = (longitude * Math.PI) / 180;
-  //distance in radians (10 miles)
-  const distance = 10 / earthRadius;
+  const LATITUDE_TO_MILES = 69;
+  const LONGITUDE_TO_MILES = 54.6; //approximate conversion factor for longitude
 
-  //calculate the coordinates
-  const lat1 = (latRad * 180) / Math.PI + (distance * 180) / Math.PI;
-  const lat2 = (latRad * 180) / Math.PI - (distance * 180) / Math.PI;
-  const lon1 = (lonRad * 180) / Math.PI + ((distance * 180) / Math.PI) / Math.cos(latRad);
-  const lon2 = (lonRad * 180) / Math.PI - ((distance * 180) / Math.PI) / Math.cos(latRad);
+  const lat = latitude;
+  const lng = longitude;
 
-  const coordinates = [lat1, lon1, lat2, lon2];
-  return coordinates;
+  //calculate the distance in degrees for 6 miles in latitude and longitude
+  const latDegrees = 6 / LATITUDE_TO_MILES;
+  const lngDegrees = 6 / LONGITUDE_TO_MILES;
+
+  //calculate the new southwest and northeast coordinates
+  const newSWLat = lat - latDegrees;
+  const newSWLng = lng - lngDegrees;
+  const newNELat = lat + latDegrees;
+  const newNELng = lng + lngDegrees;
+
+  //return the new bounds
+  return [newSWLat, newSWLng, newNELat, newNELng];
 }
 
 const getSegments = async (accessToken, refreshToken, location) => {
   
     try {
       let newTokens = await refreshAccessToken(refreshToken); //refresh the access token before making the GET request
-      location = { latitude: 34.042223, longitude: -117.991964 }
+      // location = { latitude: 40.431701, longitude: -86.919180 }
       let coords = calculateCoords(location);
-      console.log(coords[0]);
-      console.log(coords[1]);
-      console.log(coords[2]);
-      console.log(coords[3]);
+      console.log(coords[0] + "," + coords[1]);
+      console.log(coords[2] + "," + coords[3]);
 
 
       const apiUrl = 'https://www.strava.com/api/v3/segments/explore';
