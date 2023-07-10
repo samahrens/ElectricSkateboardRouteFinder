@@ -1,3 +1,7 @@
+# What is this?
+
+This ia a route finder meant for electric skateboarding! It's actively under development, but you can use it to find nearby routes to explore on your electric skateboard. More customization options coming soon.
+
 ## Available Scripts
 
 In the project directory, you can run:
