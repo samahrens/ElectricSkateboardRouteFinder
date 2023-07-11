@@ -3,6 +3,7 @@ import getSegments from './auth/getSegments';
 import MapContainer from './map/Map';
 import { useState, useEffect } from 'react';
 import Landing from './containers/landingPage/Landing';
+import MapPage from './containers/mapPage/MapPage';
 
 //initial access token and refresh token
 let accessToken = process.env.REACT_APP_accessToken;
@@ -48,9 +49,14 @@ function App() {
     setPolylines(newPolylines);
   };
 
+  const handleSliderChange = (sliderValue) => {
+    console.log('Slider value:', sliderValue);
+  };
+
   return (
     <div className="App">
       <Landing></Landing>
+      <MapPage onSliderChange={handleSliderChange} />
       <button onClick={getPolylines}>hello</button>
       {polylines.length === 10 ? 
         (location ? 
