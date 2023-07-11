@@ -1,0 +1,12 @@
+.Outer {
+    height: 1000px;
+    width: 100%;
+}
+
+.github-icon {
+    color: #FFFFFF;
+  }
+  
+  .github-icon.hovered {
+    color: #dd4ecb;
+  }
