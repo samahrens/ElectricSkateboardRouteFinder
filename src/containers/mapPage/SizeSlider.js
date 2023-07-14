@@ -1,5 +1,4 @@
 import './MapPage.css'
-import { useState } from 'react';
 import Slider from '@mui/material/Slider';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -8,7 +7,7 @@ const theme = createTheme({
         MuiSlider: {
             styleOverrides: {
                 root: {
-                    color: '#dd4ecb',
+                    color: '#c951e5',
                 },
                 thumb: {
                     '&:hover, &.Mui-focusVisible': {
@@ -16,32 +15,30 @@ const theme = createTheme({
                     },
                 },
                 track: {
-                    color: '#dd4ecb',
+                    color: '#c951e5',
                 },
                 rail: {
-                    color: '#dd4ecb',
+                    color: '#c951e5',
                 },
                 mark: {
-                    backgroundColor: '#dd4ecb',
+                    backgroundColor: '#c951e5',
                 },
             },
         },
     },
 });
 
-function MySlider({ onSliderChange }) {
-    const [sliderValue, setSliderValue] = useState(1);
+function SizeSlider({ sizeSliderValue, onSizeSliderChange }) {
 
     const handleSliderChange = (event, newValue) => {
-        setSliderValue(newValue);
-        onSliderChange(newValue);
+        onSizeSliderChange(newValue);
     };
-    
+
     return (
         <ThemeProvider theme={theme}>
             <Slider
                 aria-label="Temperature"
-                value={sliderValue}
+                value={sizeSliderValue}
                 onChange={handleSliderChange}
                 valueLabelDisplay="auto"
                 step={1}
@@ -53,4 +50,4 @@ function MySlider({ onSliderChange }) {
     )
 }
 
-export default MySlider;
+export default SizeSlider;

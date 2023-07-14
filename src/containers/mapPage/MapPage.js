@@ -1,12 +1,16 @@
 import './MapPage.css'
-import MySlider from './MySlider';
+import DistanceSlider from './DistanceSlider';
+import SizeSlider from './SizeSlider';
 
-function MapPage({ onSliderChange }) {
+function MapPage({ sliderValue, onSliderChange, sizeSliderValue, onSizeSliderChange }) {
+
 
     return (
         <div className="">
             Route Distance:
-            <MySlider onSliderChange={sliderValue => onSliderChange(sliderValue)}></MySlider>
+            <DistanceSlider sliderValue={sliderValue} onSliderChange={onSliderChange}></DistanceSlider>
+            Look for routes up to '' miles away:
+            <SizeSlider sizeSliderValue={sizeSliderValue} onSizeSliderChange={onSizeSliderChange}></SizeSlider>
         </div>
     );
 }

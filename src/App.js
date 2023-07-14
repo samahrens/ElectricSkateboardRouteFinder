@@ -13,6 +13,8 @@ function App() {
 
   const [polylines, setPolylines] = useState([]);
   const [location, setLocation] = useState(null);
+  const [sliderValue, setSliderValue] = useState(1);
+  const [sizeSliderValue, setSizeSliderValue] = useState(1);
 
   useEffect(() => {
     const getLocation = () => {
@@ -35,7 +37,7 @@ function App() {
   
 
   const getPolylines = async () => {
-    const { response, newTokens } = await getSegments(accessToken, refreshToken, location);
+    const { response, newTokens } = await getSegments(accessToken, refreshToken, location, sizeSliderValue);
     if (response == null) {
       return;
     }
@@ -49,21 +51,33 @@ function App() {
     setPolylines(newPolylines);
   };
 
-  const handleSliderChange = (sliderValue) => {
-    console.log('Slider value:', sliderValue);
+  const handleSliderChange = (newSliderValue) => {
+    setSliderValue(newSliderValue);
+  };
+  
+  const handleSizeSliderChange = (newSizeSliderValue) => {
+    setSizeSliderValue(newSizeSliderValue);
   };
 
   return (
     <div className="App">
       <Landing></Landing>
-      <MapPage onSliderChange={handleSliderChange} />
+      <MapPage
+        sliderValue={sliderValue}
+        onSliderChange={handleSliderChange}
+        sizeSliderValue={sizeSliderValue}
+        onSizeSliderChange={handleSizeSliderChange}
+      />
       <button onClick={getPolylines}>hello</button>
       {polylines.length === 10 ? 
         (location ? 
-          <MapContainer polylines={polylines} location={location} /> 
+          <MapContainer
+            polylines={polylines}
+            location={location}
+          /> 
         : <div>Please enable your location in order to see the map!</div>) 
       : <div></div>}
-        
+
     </div>
   );
 }
