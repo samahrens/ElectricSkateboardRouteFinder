@@ -1,0 +1,25 @@
+.sliders {
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: #292a3e;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+    /* height: 300px; */
+}
+
+  .sliders:hover {
+    transform: scale(1.02);
+  }
+
+.distance {
+    color: white;
+}
+
+.size {
+    color: white;
+}
+
+.innerSliders {
+    margin-left: 10%;
+    margin-right: 10%;
+}
