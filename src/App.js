@@ -68,7 +68,7 @@ function App() {
         sizeSliderValue={sizeSliderValue}
         onSizeSliderChange={handleSizeSliderChange}
       />
-      <button onClick={getPolylines}>hello</button>
+      <button onClick={getPolylines}>test</button>
       {polylines.length === 10 ? 
         (location ? 
           <MapContainer

@@ -6,11 +6,26 @@ function MapPage({ sliderValue, onSliderChange, sizeSliderValue, onSizeSliderCha
 
 
     return (
-        <div className="">
-            Route Distance:
-            <DistanceSlider sliderValue={sliderValue} onSliderChange={onSliderChange}></DistanceSlider>
-            Look for routes up to '' miles away:
-            <SizeSlider sizeSliderValue={sizeSliderValue} onSizeSliderChange={onSizeSliderChange}></SizeSlider>
+        <div className="sliders">
+            <div className="innerSliders">
+                <p className="distance">
+                    Route Distance:
+                </p>
+
+                <DistanceSlider
+                    sliderValue={sliderValue}
+                    onSliderChange={onSliderChange}>
+                </DistanceSlider>
+
+                <p className="size">
+                    Look for routes up to '' miles away:
+                </p>
+
+                <SizeSlider
+                    sizeSliderValue={sizeSliderValue}
+                    onSizeSliderChange={onSizeSliderChange}>
+                </SizeSlider>
+            </div>
         </div>
     );
 }
