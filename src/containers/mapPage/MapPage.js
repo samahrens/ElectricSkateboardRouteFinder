@@ -18,7 +18,7 @@ function MapPage({ sliderValue, onSliderChange, sizeSliderValue, onSizeSliderCha
                 </DistanceSlider>
 
                 <p className="size">
-                    Look for routes up to '' miles away:
+                    Look for routes up to <p className="sizeSliderValue">{sizeSliderValue}</p> miles away:
                 </p>
 
                 <SizeSlider
