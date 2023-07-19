@@ -1,5 +1,6 @@
 import React from 'react';
 import { Map, Polyline, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { useRef, useEffect } from 'react';
 
 const MapContainer = (props) => {
   const mapStyles = {
@@ -8,6 +9,16 @@ const MapContainer = (props) => {
   };
 
   const { google } = props; //destructure the 'google' object from props
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    if (mapRef.current) {
+      //access the Google Maps API object through the mapRef
+      const map = mapRef.current.map;
+      //set the map type to "Satellite"
+      map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+    }
+  }, [google]);
 
   const renderPolylines = () => {
     return props.polylines.map((polyline, index) => (
@@ -37,7 +48,7 @@ const MapContainer = (props) => {
       zoom={14}
       style={mapStyles}
       initialCenter={{ lat: props.location.latitude, lng: props.location.longitude}}
-    //   initialCenter={{ lat: 37.7749, lng: -122.4194 }}
+      ref={mapRef}
     >
       {renderPolylines()}
       {renderMarker()}
