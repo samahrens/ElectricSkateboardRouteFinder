@@ -1,6 +1,10 @@
 # What is this?
 
-This ia a route finder meant for electric skateboarding! It's actively under development, but you can use it to find nearby routes to explore on your electric skateboard. More customization options coming soon.
+This is a route finder meant for electric skateboarding! It's actively under development, but you can use it to find nearby routes to explore on your electric skateboard. More customization options coming soon.
+
+## How to use it
+
+Go to [eskate-route-finder.vercel.app](https://eskate-route-finder.vercel.app) and change the sliders to your preferred distance, then click the button to generate the map.
 
 ## Available Scripts
 
