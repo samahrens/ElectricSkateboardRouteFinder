@@ -4,7 +4,8 @@
     background-color: #292a3e;
     border-radius: 8px;
     transition: transform 0.2s ease-in-out;
-    /* height: 300px; */
+    font-family: Segoe UI;
+    font-weight: 600;
 }
 
   .sliders:hover {
