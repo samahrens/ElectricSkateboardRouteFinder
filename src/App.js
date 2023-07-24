@@ -34,7 +34,7 @@ function App() {
     };
     getLocation();
   }, []);
-  
+
 
   const getPolylines = async () => {
     const { response, newTokens } = await getSegments(accessToken, refreshToken, location, sizeSliderValue);
@@ -54,7 +54,7 @@ function App() {
   const handleSliderChange = (newSliderValue) => {
     setSliderValue(newSliderValue);
   };
-  
+
   const handleSizeSliderChange = (newSizeSliderValue) => {
     setSizeSliderValue(newSizeSliderValue);
   };
@@ -69,14 +69,14 @@ function App() {
         onSizeSliderChange={handleSizeSliderChange}
       />
       <button onClick={getPolylines}>test</button>
-      {polylines.length === 10 ? 
-        (location ? 
+      {
+        (location ?
           <MapContainer
             polylines={polylines}
             location={location}
-          /> 
-        : <div>Please enable your location in order to see the map!</div>) 
-      : <div></div>}
+          />
+          : <div>Please enable your location in order to see the map!</div>)
+      }
 
     </div>
   );

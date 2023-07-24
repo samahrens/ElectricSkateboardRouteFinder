@@ -30,6 +30,7 @@ const getSegments = async (accessToken, refreshToken, location, sizeSliderValue)
       let newTokens = await refreshAccessToken(refreshToken); //refresh the access token before making the GET request
       // location = { latitude: 40.431701, longitude: -86.919180 }
       let coords = calculateCoords(location, sizeSliderValue);
+      console.log("location: " + location.latitude, ", ", location.longitude)
       console.log(coords[0] + "," + coords[1]);
       console.log(coords[2] + "," + coords[3]);
 
