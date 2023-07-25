@@ -1,6 +1,7 @@
 import './MapPage.css'
 import DistanceSlider from './DistanceSlider';
 import SizeSlider from './SizeSlider';
+import Button from '@mui/material/Button';
 
 function MapPage({ sliderValue, onSliderChange, sizeSliderValue, onSizeSliderChange }) {
 
@@ -21,11 +22,17 @@ function MapPage({ sliderValue, onSliderChange, sizeSliderValue, onSizeSliderCha
                     Look for routes up to <span className="sizeSliderValue">{sizeSliderValue}</span> miles away:
                 </p>
 
-                <SizeSlider
-                    sizeSliderValue={sizeSliderValue}
-                    onSizeSliderChange={onSizeSliderChange}>
-                </SizeSlider>
+                <div className="sizeSlider">
+                    <SizeSlider
+                        sizeSliderValue={sizeSliderValue}
+                        onSizeSliderChange={onSizeSliderChange}>
+                    </SizeSlider>
+                </div>
             </div>
+
+            
+            <Button className="Button" variant="contained">Find</Button>
+
         </div>
     );
 }

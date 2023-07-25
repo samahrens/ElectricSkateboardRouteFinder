@@ -1,11 +1,12 @@
 .sliders {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 25%;
+    margin-right: 25%;
     background-color: #292a3e;
     border-radius: 8px;
     transition: transform 0.2s ease-in-out;
-    font-family: Segoe UI;
-    font-weight: 600;
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+    font-size: large;
+    overflow: hidden; /* Add this to clear floats inside the sliders div */
 }
 
   .sliders:hover {
@@ -14,6 +15,7 @@
 
 .distance {
     color: white;
+    padding-top: 4%;
 }
 
 .size {
@@ -21,11 +23,24 @@
 }
 
 .innerSliders {
-    margin-left: 10%;
-    margin-right: 10%;
+    /* margin-left: 5%;
+    margin-right: 30%; */
+    float: left; /* Float the innerSliders div to the left */
+    margin-left: 5%; /* Adjust the right margin as needed */
+    width: calc(100% - 500px); /* Adjust the width to accommodate the button (e.g., 150px) */
 }
 
 .sizeSliderValue {
   display: inline;
-  font-weight: bold;
+  font-weight: bolder;
+}
+
+.sizeSlider {
+  padding-bottom: 5%;
+}
+
+.Button {
+  float: right; /* Float the button to the left to place it next to innerSliders */
+  margin-top: 100px !important;
+  margin-right: 10% !important;
 }
