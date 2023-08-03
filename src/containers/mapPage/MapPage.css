@@ -6,7 +6,6 @@
     transition: transform 0.2s ease-in-out;
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
     font-size: large;
-    overflow: hidden; /* Add this to clear floats inside the sliders div */
 }
 
   .sliders:hover {
@@ -23,11 +22,8 @@
 }
 
 .innerSliders {
-    /* margin-left: 5%;
-    margin-right: 30%; */
-    float: left; /* Float the innerSliders div to the left */
-    margin-left: 5%; /* Adjust the right margin as needed */
-    width: calc(100% - 500px); /* Adjust the width to accommodate the button (e.g., 150px) */
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .sizeSliderValue {
@@ -35,12 +31,27 @@
   font-weight: bolder;
 }
 
-.sizeSlider {
+.button {
+  margin-top: 3%;
   padding-bottom: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.Button {
-  float: right; /* Float the button to the left to place it next to innerSliders */
-  margin-top: 100px !important;
-  margin-right: 10% !important;
+.locationError {
+  margin-top: 5%;
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map {
+
+}
+
+#map-container {
+  
 }
