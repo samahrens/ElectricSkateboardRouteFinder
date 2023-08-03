@@ -7,7 +7,7 @@ const theme = createTheme({
         MuiSlider: {
             styleOverrides: {
                 root: {
-                    color: '#dd4ecb',
+                    color: '#ec39d5',
                 },
                 thumb: {
                     '&:hover, &.Mui-focusVisible': {
@@ -15,13 +15,13 @@ const theme = createTheme({
                     },
                 },
                 track: {
-                    color: '#dd4ecb',
+                    color: '#ec39d5',
                 },
                 rail: {
-                    color: '#dd4ecb',
+                    color: '#ec39d5',
                 },
                 mark: {
-                    backgroundColor: '#dd4ecb',
+                    backgroundColor: '#ec39d5',
                 },
             },
         },
