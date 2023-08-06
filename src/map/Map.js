@@ -4,8 +4,9 @@ import { useRef, useEffect } from 'react';
 
 const MapContainer = (props) => {
   const mapStyles = {
-    width: '100%',
+    width: props.width,
     height: '400px',
+    borderRadius: '8px',
   };
 
   const { google } = props; //destructure the 'google' object from props

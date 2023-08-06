@@ -23,6 +23,21 @@ function MapPage() {
     const [location, setLocation] = useState(null);
     const [sliderValue, setSliderValue] = useState(1);
     const [sizeSliderValue, setSizeSliderValue] = useState(1);
+    const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        function handleResize() {
+            setBrowserWidth(window.innerWidth);
+        }
+
+        //event listener for resize
+        window.addEventListener('resize', handleResize);
+
+        //remove the event listener when it's no longer needed
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         const getLocation = () => {
@@ -104,16 +119,16 @@ function MapPage() {
             </div>
 
             <div className="map">
-                <div id="map-container">
-                    {
-                        (location ?
-                            <MapContainer
-                                polylines={polylines}
-                                location={location}
-                            />
-                            : <div className="locationError">Please enable your location and reload the page in order to see the map!</div>)
-                    }
-                </div>
+                {
+                    (location ?
+                        <MapContainer
+                            polylines={polylines}
+                            location={location}
+                            width={`${browserWidth / 2}px`}
+
+                        />
+                        : <div className="locationError">Please enable your location and reload the page in order to see the map!</div>)
+                }
             </div>
         </div>
 
