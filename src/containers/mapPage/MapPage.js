@@ -1,10 +1,11 @@
 import './MapPage.css'
 import DistanceSlider from './DistanceSlider';
 import SizeSlider from './SizeSlider';
-import Button from '@mui/material/Button';
+import LoadingButton from '@mui/lab/LoadingButton';
 import MapContainer from '../../map/Map';
 import { useState, useEffect } from 'react';
 import getSegments from '../../auth/getSegments';
+import CircularProgress from '@mui/material/CircularProgress';
 
 //initial access token and refresh token
 let accessToken = process.env.REACT_APP_accessToken;
@@ -17,6 +18,12 @@ const buttonStyle = {
     fontWeight: 'bold'
 };
 
+const loadingButtonStyle = {
+    ...buttonStyle,
+    backgroundColor: '#c951e5',
+    cursor: 'not-allowed',
+  };
+
 function MapPage() {
 
     const [polylines, setPolylines] = useState([]);
@@ -24,6 +31,7 @@ function MapPage() {
     const [sliderValue, setSliderValue] = useState(1);
     const [sizeSliderValue, setSizeSliderValue] = useState(1);
     const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         function handleResize() {
@@ -59,6 +67,8 @@ function MapPage() {
     }, []);
 
     const getPolylines = async () => {
+        setIsLoading(true);
+
         if (!location) {
             return;
         }
@@ -71,6 +81,7 @@ function MapPage() {
         refreshToken = newTokens.newRefreshToken;
         // console.log("new accessToken: " + accessToken + " new refreshToken: " + refreshToken);
 
+        setIsLoading(false);
         console.log(response.data.segments);
 
         const newPolylines = response.data.segments.map(segment => segment.points);
@@ -108,12 +119,15 @@ function MapPage() {
                     </SizeSlider>
 
                     <div className="button">
-                        <Button className="Button"
+                        <LoadingButton className="Button"
                             variant="contained"
-                            style={buttonStyle}
-                            onClick={getPolylines}>
+                            style={isLoading ? loadingButtonStyle : buttonStyle}
+                            onClick={getPolylines}
+                            loading={isLoading}
+                            loadingIndicator={<CircularProgress size={20} color="inherit" />}
+                            >
                             Find Routes
-                        </Button>
+                        </LoadingButton>
                     </div>
                 </div>
             </div>
